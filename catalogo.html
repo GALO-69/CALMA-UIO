@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CATÁLOGO | Llaveros Personalizados CALMA - Quito, Ecuador</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #F5A623;
+            --primary-burgundy: #6B2C2C;
+            --dark-brown: #3D1E1E;
+            --soft-cream: #FFF8F0;
+            --light-orange: #FFE4C4;
+            --text-gray: #4a4a4a;
+            --light-shadow: rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-gray);
+            background: var(--soft-cream);
+            overflow-x: hidden;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Decorative Background Elements */
+        .bg-decoration {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.1;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .bg-decoration-1 {
+            background: var(--primary-orange);
+            top: -150px;
+            right: -150px;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .bg-decoration-2 {
+            background: var(--primary-burgundy);
+            bottom: -150px;
+            left: -150px;
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, 30px) scale(1.05); }
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px var(--light-shadow);
+            animation: slideDown 0.6s ease-out;
+            min-height: 70px;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            transition: transform 0.3s ease;
+            width: 100px;
+            height: auto;
+        }
+
+        .logo:hover .logo-icon {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-gray);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-orange);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-orange);
+        }
+
+        /* Hero Section for Catalog */
+        .hero-catalog {
+            margin-top: 70px;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            padding: 3rem 1.5rem;
+            background: linear-gradient(135deg, rgba(107, 44, 44, 0.05), rgba(245, 166, 35, 0.05));
+        }
+
+        .hero-catalog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            width: 100%;
+        }
+
+        .hero-catalog h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            color: var(--dark-brown);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-catalog .highlight {
+            color: var(--primary-orange);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-catalog p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: var(--text-gray);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .catalog-filters {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2.5rem;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 1.8rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+            color: var(--dark-brown);
+            border: 2px solid var(--light-orange);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary-orange);
+            color: white;
+            border-color: var(--primary-orange);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(245, 166, 35, 0.2);
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-orange), #FFB84D);
+            color: white;
+            box-shadow: 0 10px 30px rgba(245, 166, 35, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(245, 166, 35, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-burgundy);
+            border: 2px solid var(--primary-burgundy);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-burgundy);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Sections Common */
+        section {
+            padding: 5rem 1.5rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            color: var(--dark-brown);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Catalog Grid */
+        .catalog-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+            padding: 0 1rem;
+        }
+
+        .product-card-catalog {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--light-shadow);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .product-card-catalog:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--primary-orange);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .product-image-catalog {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image-catalog img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .product-card-catalog:hover .product-image-catalog img {
+            transform: scale(1.05);
+        }
+
+        .product-info-catalog {
+            padding: 1.8rem;
+        }
+
+        .product-info-catalog h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--dark-brown);
+            margin-bottom: 0.8rem;
+        }
+
+        .product-info-catalog p {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            min-height: 60px;
+        }
+
+        .product-specs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .spec-item {
+            background: var(--soft-cream);
+            padding: 0.4rem 0.8rem;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            color: var(--dark-brown);
+            font-weight: 500;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--light-orange);
+        }
+
+        .product-price-catalog {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-orange);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .product-price-catalog span {
+            font-size: 1rem;
+            color: var(--text-gray);
+            text-decoration: line-through;
+            margin-left: 0.5rem;
+            font-weight: 400;
+        }
+
+        .order-btn {
+            padding: 0.7rem 1.5rem;
+            background: var(--primary-burgundy);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .order-btn:hover {
+            background: var(--dark-brown);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(107, 44, 44, 0.2);
+        }
+
+        /* Collections Section */
+        .collections {
+            background: white;
+        }
+
+        .collections-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .collection-card {
+            background: var(--soft-cream);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--light-shadow);
+            transition: all 0.4s ease;
+        }
+
+        .collection-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .collection-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .collection-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .collection-card:hover .collection-image img {
+            transform: scale(1.05);
+        }
+
+        .collection-info {
+            padding: 1.8rem;
+            text-align: center;
+        }
+
+        .collection-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--dark-brown);
+            margin-bottom: 1rem;
+        }
+
+        .collection-info p {
+            color: var(--text-gray);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta-catalog {
+            background: linear-gradient(135deg, var(--primary-burgundy), var(--dark-brown));
+            color: white;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-catalog .section-title {
+            color: white;
+        }
+
+        .cta-catalog .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .cta-buttons-catalog {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+           
+        }
+
+        /* FAQ Section */
+        .faq {
+            background: white;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px var(--light-shadow);
+            background: var(--soft-cream);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            font-weight: 600;
+            color: var(--dark-brown);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(245, 166, 35, 0.05);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        .faq-answer.active {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 500px;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            color: var(--primary-orange);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-brown);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 3rem 1.5rem 1.5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section {
+            text-align: center;
+        }
+
+        .footer-section h3 {
+            color: white;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-orange);
+        }
+
+        .footer-logo {
+            width: 120px;
+            height: auto;
+            margin: 0 auto 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            justify-content: center;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-orange);
+            transform: translateY(-3px);
+        }
+
+        .social-links img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--dark-brown);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 999;
+            text-decoration: none;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .whatsapp-button img {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE DESIGN */
+
+        /* Tablet */
+        @media (max-width: 1024px) {
+            .hero-catalog h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .catalog-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        /* Tablet Pequeña */
+        @media (max-width: 900px) {
+            .hero-catalog h1 {
+                font-size: 2.5rem;
+            }
+            
+            .catalog-filters {
+                gap: 0.8rem;
+            }
+            
+            .filter-btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Mobile - Menú Hamburguesa */
+        @media (max-width: 768px) {
+            header {
+                min-height: 60px;
+            }
+            
+            nav {
+                height: 60px;
+                padding: 0 1rem;
+            }
+            
+            .logo-icon {
+                width: 80px;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: -100%;
+                flex-direction: column;
+                background: white;
+                width: 100%;
+                padding: 2rem;
+                box-shadow: 0 5px 20px var(--light-shadow);
+                transition: left 0.4s ease;
+                height: calc(100vh - 60px);
+                align-items: center;
+                justify-content: flex-start;
+                gap: 1.5rem;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 1rem 0;
+            }
+            
+            .hero-catalog {
+                margin-top: 60px;
+                padding: 2rem 1rem;
+                min-height: 50vh;
+            }
+            
+            .hero-catalog h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-catalog p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .catalog-filters {
+                margin-top: 2rem;
+            }
+            
+            section {
+                padding: 3rem 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .catalog-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .collections-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons-catalog {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .bg-decoration {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .whatsapp-button {
+                width: 50px;
+                height: 50px;
+                bottom: 15px;
+                right: 15px;
+            }
+            
+            .whatsapp-button img {
+                width: 25px;
+                height: 25px;
+            }
+            
+            .product-image-catalog {
+                height: 250px;
+            }
+            
+            .product-footer {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .order-btn {
+                width: 100%;
+            }
+        }
+
+        /* Mobile Pequeño */
+        @media (max-width: 480px) {
+            .hero-catalog h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .catalog-filters {
+                gap: 0.5rem;
+            }
+            
+            .filter-btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+            
+            .product-info-catalog {
+                padding: 1.5rem;
+            }
+            
+            .product-price-catalog {
+                font-size: 1.5rem;
+            }
+            
+            footer {
+                padding: 2rem 1rem 1rem;
+            }
+            
+            .copyright {
+                font-size: 0.8rem;
+                padding-top: 1.5rem;
+            }
+        }
+
+        /* Pantallas muy grandes */
+        @media (min-width: 1600px) {
+            nav,
+            .hero-catalog-container,
+            .catalog-grid,
+            .collections-grid,
+            .faq-container,
+            .cta-content,
+            .footer-content {
+                max-width: 1400px;
+            }
+            
+            .hero-catalog h1 {
+                font-size: 4rem;
+            }
+            
+            .section-title {
+                font-size: 3rem;
+            }
+            
+            .catalog-grid {
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Decorations -->
+    <div class="bg-decoration bg-decoration-1"></div>
+    <div class="bg-decoration bg-decoration-2"></div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="./index.html" class="logo">
+                <img src="./assets/imagenes/logo calma2.0Artboard 4.svg" alt="CALMA" class="logo-icon">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="./index.html#productos" class="active">Productos</a></li>
+                <li><a href="./index.html#testimonios">Testimonios</a></li>
+                <li><a href="./index.html#contacto">Contacto</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section for Catalog -->
+    <section class="hero-catalog" id="catalogo">
+        <div class="hero-catalog-container">
+            <h1>Catálogo <span class="highlight">Completo</span> de Llaveros</h1>
+            <p>Explora nuestra amplia variedad de llaveros personalizados. Desde diseños simples hasta colecciones exclusivas, encuentra el perfecto para ti o para regalar.</p>
+            <div class="catalog-filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="personalizados">Personalizados</button>
+                <button class="filter-btn" data-filter="parejas">Parejas</button>
+                <button class="filter-btn" data-filter="empresas">Empresas</button>
+                <button class="filter-btn" data-filter="ocasiones">Ocasiones Especiales</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Grid -->
+    <section class="catalog reveal">
+        <div class="catalog-grid" id="productGrid">
+            <!-- Product 1 -->
+            <div class="product-card-catalog" data-category="personalizados">
+                <div class="product-badge">Más Vendido</div>
+                <div class="product-image-catalog">
+                    <img src="./assets/imagenes/Llavero Polaroid.jpg" alt="Llavero Polaroid Personalizado">
+                </div>
+                <div class="product-info-catalog">
+                    <h3>Llavero Polaroid</h3>
+                    <p>Diseño en forma de polaroid con tu foto favorita. Incluye cadena metálica y detalles en color.</p>
+                    <div class="product-specs">
+                       
+                        <span class="spec-item">Foto Personalizada</span>
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price-catalog">$2.50</div>
+                        <button class="order-btn" data-product="Llavero Polaroid">Pedir Ahora</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card-catalog" data-category="parejas">
+                <div class="product-badge">Nuevo</div>
+                <div class="product-image-catalog">
+                    <img src="./assets/imagenes/llaveros san Valentín cars ❤️.jpg" alt="Llaveros San Valentín">
+                </div>
+                <div class="product-info-catalog">
+                    <h3>Llavero CARS</h3>
+                    <p>Dale algo especial a tu mc queen</p>
+                    <div class="product-specs">
+                       
+                        
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price-catalog">$3.50</div>
+                        <button class="order-btn" data-product="Set Corazón Partido">Pedir Ahora</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card-catalog" data-category="empresas">
+                <div class="product-badge">Nuevo</div>
+                <div class="product-image-catalog">
+                    <img src="./assets/catalogoimg/0.png" alt="Llavero Corporativo">
+                </div>
+                <div class="product-info-catalog">
+                    <h3>Carta de Amor</h3>
+                    <p>Demuestra lo que sientes.</p>
+                    <div class="product-specs">
+                        
+                        
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price-catalog">$3.75</div>
+                        <button class="order-btn" data-product="Llavero Corporativo">Pedir Ahora</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card-catalog" data-category="ocasiones">
+                <div class="product-image-catalog">
+                <div class="product-badge">Nuevo</div>
+                    <img src="./assets/catalogoimg/biker.jpg" alt="Llavero Especial">
+                </div>
+                <div class="product-info-catalog">
+                    <h3>BIKER</h3>
+                    <p>Llavero ideal para la persona que le encanta el mundo motor</p>
+                    <div class="product-specs">
+                        
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price-catalog">$2.00</div>
+                        <button class="order-btn" data-product="Pack Romántico">Pedir Ahora</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card-catalog" data-category="personalizados">
+                <div class="product-image-catalog">
+                <div class="product-badge">Nuevo</div>
+
+                    <img src="./assets/catalogoimg/simpson.png" alt="Llavero Nombre">
+                </div>
+                <div class="product-info-catalog">
+                    <h3>Simpson</h3>
+                    <p>Inlcuye dos llaveros 💕</p>
+                    <div class="product-specs">
+                        
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price-catalog">$3.50</div>
+                        <button class="order-btn" data-product="Llavero de Nombre">Pedir Ahora</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card-catalog" data-category="empresas">
+                <div class="product-badge">Nuevo</div>
+                <div class="product-image-catalog">
+                    <img src="./assets/catalogoimg/liloystich.png" alt="Llavero Mínimal">
+                </div>
+                <div class="product-info-catalog">
+                    <h3>Lylo y Stich</h3>
+                    <p>Incluye dos llaveros 💕 </p>
+                    <div class="product-specs">
+                        
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price-catalog">$3.50</div>
+                        <button class="order-btn" data-product="Llavero Mínimal">Pedir Ahora</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 7 -->
+             <div class="product-card-catalog" data-category="empresas">
+                <div class="product-badge">Nuevo</div>
+                <div class="product-image-catalog">
+                    <img src="./assets/catalogoimg/elegance.png" alt="Llavero Mínimal">
+                </div>
+                <div class="product-info-catalog">
+                    <h3>Elegance</h3>
+                    <p>Incluye dos llaveros 💕 </p>
+                    <div class="product-specs">
+                        
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price-catalog">$3.50</div>
+                        <button class="order-btn" data-product="Llavero Mínimal">Pedir Ahora</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 8 -->
+             <div class="product-card-catalog" data-category="empresas">
+                <div class="product-badge">Nuevo</div>
+                <div class="product-image-catalog">
+                    <img src="./assets/catalogoimg/bobesponja.png" alt="Llavero Mínimal">
+                </div>
+                <div class="product-info-catalog">
+                    <h3>Bob Esponja</h3>
+                    <p>Incluye dos llaveros 💕 </p>
+                    <div class="product-specs">
+                        
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price-catalog">$3.50</div>
+                        <button class="order-btn" data-product="Llavero Mínimal">Pedir Ahora</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 9 -->
+             <div class="product-card-catalog" data-category="empresas">
+                <div class="product-badge">Nuevo</div>
+                <div class="product-image-catalog">
+                    <img src="./assets/catalogoimg/goku y milk.png" alt="Llavero Mínimal">
+                </div>
+                <div class="product-info-catalog">
+                    <h3>Goku y Milk</h3>
+                    <p>Incluye dos llaveros 💕 </p>
+                    <div class="product-specs">
+                        
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price-catalog">$3.50</div>
+                        <button class="order-btn" data-product="Llavero Mínimal">Pedir Ahora</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Prodcut 10 -->
+            <div class="product-card-catalog" data-category="empresas">
+                <div class="product-badge">Nuevo</div>
+                <div class="product-image-catalog">
+                    <img src="./assets/catalogoimg/0 (6).png" alt="Llavero Mínimal">
+                </div>
+                <div class="product-info-catalog">
+                    <h3>Goku y Milk 2 </h3>
+                    <p>Incluye dos llaveros 💕 </p>
+                    <div class="product-specs">
+                        
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price-catalog">$3.50</div>
+                        <button class="order-btn" data-product="Llavero Mínimal">Pedir Ahora</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 11 -->
+             <div class="product-card-catalog" data-category="empresas">
+                <div class="product-badge">Nuevo</div>
+                <div class="product-image-catalog">
+                    <img src="./assets/catalogoimg/0 (7).png" alt="Llavero Mínimal">
+                </div>
+                <div class="product-info-catalog">
+                    <h3>La Dama y el Vagabundo</h3>
+                    <p>Incluye dos llaveros 💕 </p>
+                    <div class="product-specs">
+                        
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price-catalog">$3.50</div>
+                        <button class="order-btn" data-product="Llavero Mínimal">Pedir Ahora</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 12 -->
+             <div class="product-card-catalog" data-category="empresas">
+                <div class="product-badge">Nuevo</div>
+                <div class="product-image-catalog">
+                    <img src="./assets/catalogoimg/biker2.jpg" alt="Llavero Mínimal">
+                </div>
+                <div class="product-info-catalog">
+                    <h3>Biker 2</h3>
+                    <p>Incluye un llavero acrilico 💕 </p>
+                    <div class="product-specs">
+                        
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price-catalog">$2</div>
+                        <button class="order-btn" data-product="Llavero Mínimal">Pedir Ahora</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 13 -->
+             <div class="product-card-catalog" data-category="empresas">
+                <div class="product-badge">Nuevo</div>
+                <div class="product-image-catalog">
+                    <img src="./assets/catalogoimg/lightcloud.jpg" alt="Llavero Mínimal">
+                </div>
+                <div class="product-info-catalog">
+                    <h3>Light Cloud</h3>
+                    <p>Personalizalo con la foto de tu mejor amigo!! </p>
+                    <div class="product-specs">
+                        
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price-catalog">$2.50</div>
+                        <button class="order-btn" data-product="Llavero Mínimal">Pedir Ahora</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 14 -->
+             <div class="product-card-catalog" data-category="empresas">
+                <div class="product-badge">Nuevo</div>
+                <div class="product-image-catalog">
+                    <img src="./assets/catalogoimg/LLavero Spotify (1).jpg" alt="Llavero Mínimal">
+                </div>
+                <div class="product-info-catalog">
+                    <h3>Elegance</h3>
+                    <p>Personalizalo con tu cancion favorita!! </p>
+                    <div class="product-specs">
+                        
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price-catalog">$2.50</div>
+                        <button class="order-btn" data-product="Llavero Mínimal">Pedir Ahora</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 15 -->
+             <div class="product-card-catalog" data-category="empresas">
+                <div class="product-badge">Nuevo</div>
+                <div class="product-image-catalog">
+                    <img src="./assets/catalogoimg/player12.jpg" alt="Llavero Mínimal">
+                </div>
+                <div class="product-info-catalog">
+                    <h3>Player 1 & Player 2</h3>
+                    <p>Incluye dos llaveros 💕 </p>
+                    <div class="product-specs">
+                        
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price-catalog">$3.50</div>
+                        <button class="order-btn" data-product="Llavero Mínimal">Pedir Ahora</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 16 -->
+             <div class="product-card-catalog" data-category="empresas">
+                <div class="product-badge">Nuevo</div>
+                <div class="product-image-catalog">
+                    <img src="./assets/catalogoimg/enredados.jpg" alt="Llavero Mínimal">
+                </div>
+                <div class="product-info-catalog">
+                    <h3>Enredados</h3>
+                    <p>Incluye dos llaveros 💕 </p>
+                    <div class="product-specs">
+                        
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price-catalog">$3.50</div>
+                        <button class="order-btn" data-product="Llavero Mínimal">Pedir Ahora</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- Collections Section -->
+    <section class="collections reveal">
+        <h2 class="section-title">Colecciones Exclusivas</h2>
+        <p class="section-subtitle">Diseños temáticos para cada ocasión especial</p>
+        <div class="collections-grid">
+            <div class="collection-card">
+                <div class="collection-image">
+                    <img src="./assets/imagenes/llaveros san Valentín cars ❤️.jpg" alt="Colección Amor">
+                </div>
+                <div class="collection-info">
+                    <h3>Colección Series Animadas</h3>
+                    <p>Llaveros de series animadas, ideal para regalos, san valentin, parejas, amigos, y demas.</p>
+                    <a href="#contacto" class="btn btn-secondary">Ver Colección</a>
+                </div>
+            </div>
+            <div class="collection-card">
+                <div class="collection-image">
+                    <img src="./assets/catalogoimg/spotify.jpg" alt="Colección Empresarial">
+                </div>
+                <div class="collection-info">
+                    <h3>Colección de Música</h3>
+                    <p>Diseños personalizados con tu música favorita.</p>
+                    <a href="#contacto" class="btn btn-secondary">Ver Colección</a>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    <!-- CTA Section -->
+    <section class="cta-catalog reveal" id="contacto">
+        <div class="cta-content">
+            <h2 class="section-title">¿Listo para Personalizar tu Llavero?</h2>
+            <p class="section-subtitle">Contáctanos para recibir asesoría personalizada y una cotización sin compromiso</p>
+            <div class="cta-buttons-catalog">
+                <a href="https://w.app/llq4ij" class="btn btn-primary" target="_blank">Pedir por WhatsApp</a>
+                <!-- <a href="./index.html#contacto" class="btn btn-secondary">Solicitar Cotización</a> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="./assets/imagenes/logo balanco calma2.0wh.svg" alt="CALMA" class="footer-logo">
+                <p>Llaveros personalizados de calidad artesanal en Quito.</p>
+                <div class="social-links">
+                    <a href="" aria-label="Tiktok">
+                        <img src="./assets/imagenes/tiktok.png" alt="TikTok">
+                    </a>
+                    <a href="https://www.instagram.com/calma.uio?igsh=MWExdDhzaDRreW5ieQ==" aria-label="Instagram">
+                        <img src="./assets/imagenes/instagram.png" alt="Instagram">
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>📍 Quito, Ecuador</p>
+                <p>📞 +593 98-378-8859</p>
+                <p>✉️ calma.uio@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <a href="./index.html">Inicio</a>
+                <a href="#catalogo">Catálogo</a>
+                <a href="./index.html#testimonios">Testimonios</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 CALMA Ecuador. Todos los derechos reservados. Hecho con ❤️ en Quito</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://w.app/llq4ij" class="whatsapp-button" target="_blank" aria-label="Contactar por WhatsApp">
+        <img src="./assets/imagenes/whatsapp icon.png" alt="WhatsApp">
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            
+            // Animate hamburger to X
+            const spans = menuToggle.querySelectorAll('span');
+            if (navLinks.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        });
+
+        // Close menu when clicking on a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const spans = menuToggle.querySelectorAll('span');
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            });
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        const spans = menuToggle.querySelectorAll('span');
+                        spans[0].style.transform = 'none';
+                        spans[1].style.opacity = '1';
+                        spans[2].style.transform = 'none';
+                    }
+                    
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll Reveal Animation
+        const reveals = document.querySelectorAll('.reveal');
+        
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            reveals.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const revealPoint = 100;
+                
+                if (elementTop < windowHeight - revealPoint) {
+                    element.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Initial check
+
+        // Add parallax effect to background decorations
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const decorations = document.querySelectorAll('.bg-decoration');
+            decorations.forEach((decoration, index) => {
+                const speed = (index + 1) * 0.2;
+                decoration.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Catalog Filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card-catalog');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filter = button.getAttribute('data-filter');
+                
+                // Show/hide products based on filter
+                productCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 10);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Order Now Buttons
+        const orderButtons = document.querySelectorAll('.order-btn');
+        orderButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productName = button.getAttribute('data-product');
+                const message = `Hola CALMA 👋\nMe interesa el producto: ${productName}\nQuiero hacer un pedido. ¿Podrían darme más información?`;
+                
+                window.open(
+                    `https://wa.me/593983788859?text=${encodeURIComponent(message)}`,
+                    '_blank'
+                );
+            });
+        });
+
+        // FAQ Accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const answer = question.nextElementSibling;
+                
+                // Close other open items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem && item.classList.contains('active')) {
+                        item.classList.remove('active');
+                        item.querySelector('.faq-answer').classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                faqItem.classList.toggle('active');
+                answer.classList.toggle('active');
+            });
+        });
+
+        // Close menu when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768 && 
+                navLinks.classList.contains('active') &&
+                !navLinks.contains(e.target) && 
+                !menuToggle.contains(e.target)) {
+                navLinks.classList.remove('active');
+                const spans = menuToggle.querySelectorAll('span');
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
